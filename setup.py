@@ -4,7 +4,7 @@ from setuptools import find_packages
 
 setup(
     name='sesql-django-16',
-    version='1.0',
+    version='1.0.1',
 
     description='SeSQL ORM backend for Django 1.6',
     long_description=open('README.rst').read(),
