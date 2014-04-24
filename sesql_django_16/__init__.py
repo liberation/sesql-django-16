@@ -21,10 +21,9 @@ class AtomicDjangoOrmAdapter(DjangoOrmAdapter):
         """
         def transactional_inner(*args, **kwargs):
             nb_tries = 0
-            transaction.set_autocommit(False)
             while nb_tries < self.NB_TRIES:
-                cursor = self.begin()
                 try:
+                    cursor = self.cursor()
                     with transaction.atomic():
                         res = function(cursor, *args, **kwargs)
                     return res
